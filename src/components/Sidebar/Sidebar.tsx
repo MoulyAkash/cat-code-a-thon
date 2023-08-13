@@ -38,7 +38,9 @@ export default function Sidebar() {
       >
         {Icon}
         <div
-          className={`sidebar-icon-title noselect ${expanded ? "" : "hidden"}`}
+          className={`sidebar-icon-title noselect ${
+            path === location.pathname ? "active" : ""
+          } ${expanded ? "" : "hidden"}`}
         >
           {title}
         </div>

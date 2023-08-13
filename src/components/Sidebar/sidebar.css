@@ -60,6 +60,10 @@
   color: var(--primary-color);
 }
 
+.sidebar-icon-title.active {
+  color: var(--white);
+}
+
 .sidebar-icon-title.hidden {
   opacity: 0;
   display: none;

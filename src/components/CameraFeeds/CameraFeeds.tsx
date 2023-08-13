@@ -13,24 +13,23 @@ export default function CameraFeeds() {
   const webcamRef = useRef<Webcam>(null);
 
   const captureImage = useCallback(() => {
-    const image = webcamRef?.current?.getScreenshot();
-    const formData = new FormData();
-    formData.append("image", image);
+    const image = webcamRef?.current?.getScreenshot({
+      width: 1280,
+      height: 720,
+    });
     fetch("http://6081-14-139-190-106.ngrok.io/", {
       method: "POST",
-      body: formData,
       headers: {
+        "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "multipart/form-data",
-        "ngrok-skip-browser-warning": true,
       },
+      body: JSON.stringify({ image: image }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
       })
       .catch((error) => {
-        // Handle the error
         console.error(error);
       });
   }, [webcamRef]);

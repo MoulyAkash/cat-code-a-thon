@@ -1,7 +1,8 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .dashboard-container > .section {
@@ -18,8 +19,23 @@
   margin-top: 45px;
 }
 
+.dashboard-container > .section:nth-child(3) > .left {
+  margin-top: 0;
+}
+
+.dashboard-container > .section > .left > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
 .dashboard-container > .section > .right {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  gap: 15px;
+  justify-content: space-between;
 }
 
 .dashboard-container > .section > .left section {
@@ -32,60 +48,47 @@
   color: var(--not-so-light-grey);
 }
 
-.dashboard-container > .section > .left > .card-container {
+.card-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
 
-.dashboard-container > .section > .left > .card-container > .card {
+.card-container > .card {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   border-radius: 30px;
   background-color: var(--white);
   width: 100%;
 }
 
-.dashboard-container > .section > .left > .card-container > .card > .icon {
+.card-container > .card > .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 45px;
-  width: 45px;
+  height: 35px;
+  width: 35px;
   margin: 15px 0 0 15px;
   border-radius: 50%;
-  font-size: 22px;
+  font-size: 16px;
   background-color: var(--green);
   color: var(--white);
 }
 
-.dashboard-container > .section > .left > .card-container > .card > .content {
+.card-container > .card > .content {
   display: flex;
   flex-direction: column;
   gap: 3px;
   padding: 20px;
 }
 
-.dashboard-container
-  > .section
-  > .left
-  > .card-container
-  > .card
-  > .content
-  > h1 {
+.card-container > .card > .content > h1 {
   font-size: 26px;
   font-weight: 600;
 }
 
-.dashboard-container
-  > .section
-  > .left
-  > .card-container
-  > .card
-  > .content
-  > p {
+.card-container > .card > .content > p {
   font-size: 14px;
   color: var(--primary-color);
 }

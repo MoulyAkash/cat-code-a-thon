@@ -31,9 +31,9 @@ function MobileConnection({ name, status, battery }: MobileConnectionProps) {
           <div className="name">{name}</div>
           <div className="status">
             {status ? (
-              <div style={{ color: "lightgreen" }}>Connected</div>
+              <p style={{ color: "lightgreen" }}>Connected</p>
             ) : (
-              <div style={{ color: "red" }}>Disconnected</div>
+              <p style={{ color: "red" }}>Disconnected</p>
             )}
           </div>
           <div className="batteryStatus">
