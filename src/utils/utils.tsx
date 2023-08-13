@@ -130,3 +130,29 @@ export const RenderIcon = ({ iconName, className, style }: RenderIconProps) => {
 
   return <img src={currentImage} alt="" className={className} style={style} />;
 };
+
+export const isExcelTime = (num: any) =>
+  typeof num === "number" && num % 1 !== 0 && num >= 0 && num < 0.99999999;
+
+export function parseExcelTime(timeDecimal: number): any {
+  if (isExcelTime(timeDecimal)) {
+    const hours = Math.floor(timeDecimal * 24);
+    const minutes = Math.floor((timeDecimal * 24 * 60) % 60);
+    const seconds = Math.floor((timeDecimal * 24 * 60 * 60) % 60);
+
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  } else return timeDecimal;
+}
+
+export const parseExcelData = (data: any[]) => {
+  let keys = Object.keys(data[0]);
+  for (let item of data)
+    for (let key of keys)
+      if (typeof item[key] === "boolean") item[key] = item[key] ? "Yes" : "No";
+      else if (isExcelTime(item[key])) item[key] = parseExcelTime(item[key]);
+      else if (typeof item[key] === "number") item[key] = item[key].toString();
+
+  return [...data];
+};

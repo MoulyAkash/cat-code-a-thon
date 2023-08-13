@@ -9,6 +9,7 @@ interface FilterProps {
   selectedOptions: SelectedOptions;
   setSelectedOptions: React.Dispatch<React.SetStateAction<SelectedOptions>>;
   children: ReactNode;
+  align?: "left" | "right";
 }
 
 interface SelectedOptions {
@@ -21,6 +22,7 @@ const Filter: React.FC<FilterProps> = ({
   selectedOptions,
   setSelectedOptions,
   children,
+  align,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,62 +67,64 @@ const Filter: React.FC<FilterProps> = ({
       <div className="toggle" onClick={() => setIsOpen(!isOpen)}>
         {children}
       </div>
-      {isOpen && (
-        <div className="filter-dropdown-content">
-          <h1>Filters</h1>
-          {Object.keys(options).map(
-            (groupLabel: string, index: number) =>
-              (!filterLabel || filterLabel === groupLabel) && (
-                <div className="group-wrapper" key={groupLabel}>
-                  <div className="group-container">
-                    <div className="group-name">
-                      <label>{groupLabel}</label>
-                      {selectedOptions[groupLabel].length !== 0 && (
-                        <div
-                          className="visible-toggle"
-                          onClick={() => {
-                            setSelectedOptions(
-                              (oldSelectedOptions: SelectedOptions) => {
-                                oldSelectedOptions[groupLabel] = [];
-                                return { ...oldSelectedOptions };
-                              }
-                            );
-                          }}
-                        >
-                          Show all
-                        </div>
-                      )}
-                    </div>
-                    {options[groupLabel].map((option) => (
+      <div
+        data-visible={isOpen}
+        data-align={align || "left"}
+        className="filter-dropdown-content"
+      >
+        <h1>Filters</h1>
+        {Object.keys(options).map(
+          (groupLabel: string, index: number) =>
+            (!filterLabel || filterLabel === groupLabel) && (
+              <div className="group-wrapper" key={groupLabel}>
+                <div className="group-container">
+                  <div className="group-name">
+                    <label>{groupLabel}</label>
+                    {selectedOptions[groupLabel].length !== 0 && (
                       <div
-                        className="option"
-                        key={String(option)}
-                        onClick={() => updateFilters(groupLabel, option)}
+                        className="visible-toggle"
+                        onClick={() => {
+                          setSelectedOptions(
+                            (oldSelectedOptions: SelectedOptions) => {
+                              oldSelectedOptions[groupLabel] = [];
+                              return { ...oldSelectedOptions };
+                            }
+                          );
+                        }}
                       >
-                        <div className="content">
-                          <AiOutlineHolder />
-                          {typeof option === "boolean"
-                            ? option
-                              ? "Yes"
-                              : "No"
-                            : String(option)}
-                        </div>
-                        <div className="visible-toggle">
-                          {selectedOptions[groupLabel].includes(option) ? (
-                            <FiEye />
-                          ) : null}
-                        </div>
+                        Show all
                       </div>
-                    ))}
+                    )}
                   </div>
-                  {index !== Object.keys(options).length - 1 && (
-                    <div className="separator" />
-                  )}
+                  {options[groupLabel].map((option) => (
+                    <div
+                      className="option"
+                      key={String(option)}
+                      onClick={() => updateFilters(groupLabel, option)}
+                    >
+                      <div className="content">
+                        <AiOutlineHolder />
+                        {typeof option === "boolean"
+                          ? option
+                            ? "Yes"
+                            : "No"
+                          : String(option)}
+                      </div>
+                      <div className="visible-toggle">
+                        {selectedOptions[groupLabel].includes(option) ? (
+                          <FiEye />
+                        ) : null}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              )
-          )}
-        </div>
-      )}
+                {index !== Object.keys(options).length - 1 && (
+                  <div className="separator" />
+                )}
+              </div>
+            )
+        )}
+      </div>
     </div>
   );
 };
