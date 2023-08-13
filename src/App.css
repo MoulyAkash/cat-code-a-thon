@@ -1,0 +1,32 @@
+.app-container {
+  background-color: var(--body-color);
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100vw;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-basis: 0;
+  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px 60px;
+  background-color: var(--body-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-header {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}

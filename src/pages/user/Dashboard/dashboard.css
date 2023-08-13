@@ -1,0 +1,91 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.dashboard-container > .section {
+  display: flex;
+  gap: 30px;
+  height: 40vh;
+}
+
+.dashboard-container > .section > .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin-top: 45px;
+}
+
+.dashboard-container > .section > .right {
+  flex: 1;
+}
+
+.dashboard-container > .section > .left section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard-container > .section > .left section p {
+  color: var(--not-so-light-grey);
+}
+
+.dashboard-container > .section > .left > .card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.dashboard-container > .section > .left > .card-container > .card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 30px;
+  background-color: var(--white);
+  width: 100%;
+}
+
+.dashboard-container > .section > .left > .card-container > .card > .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  margin: 15px 0 0 15px;
+  border-radius: 50%;
+  font-size: 22px;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.dashboard-container > .section > .left > .card-container > .card > .content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 20px;
+}
+
+.dashboard-container
+  > .section
+  > .left
+  > .card-container
+  > .card
+  > .content
+  > h1 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.dashboard-container
+  > .section
+  > .left
+  > .card-container
+  > .card
+  > .content
+  > p {
+  font-size: 14px;
+  color: var(--primary-color);
+}

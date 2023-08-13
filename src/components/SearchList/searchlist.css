@@ -1,0 +1,115 @@
+.search-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-list-container h4 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.search-list-container .search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--grey);
+  gap: 3px;
+  background-color: var(--white);
+  padding: 8px 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #d9d9dd;
+  margin-top: 10px;
+}
+
+.search-list-container .search-bar input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 10px;
+  font-weight: 600;
+  background-color: var(--white);
+}
+
+.search-list-container .search-bar input::placeholder {
+  font-weight: 400;
+  color: var(--not-so-light-grey);
+}
+
+.search-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.search-list .search-list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
+.search-list .search-list-item:hover {
+  background-color: var(--light-grey);
+}
+
+.search-list .search-list-item.non-edit {
+  border: 1px solid #d9d9dd;
+  margin-top: 5px;
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+
+.search-list .search-list-item.non-edit:hover {
+  background-color: var(--white);
+}
+
+.search-list .search-list-item img {
+  width: 40px;
+  aspect-ratio: 1;
+}
+
+.search-list .search-list-item .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 75%;
+}
+
+.search-list .search-list-item h4 {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: capitalize;
+  color: var(--primary-color);
+}
+
+.search-list .search-list-item p {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: capitalize;
+  color: var(--grey);
+}
+
+.selected {
+  background-color: #e9ffef;
+}
+
+.selected-icon {
+  margin-right: 10px;
+  color: green;
+}
+
+.search-list-item .content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}

@@ -1,0 +1,130 @@
+.sidebar {
+  width: 3.5vw;
+  background-color: var(--white);
+  color: var(--primary-color);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding-top: 2vh;
+  height: 100vh;
+  border-right: 1px solid var(--primary-color);
+}
+
+.sidebar.expanded {
+  width: 25vw;
+}
+
+.sidebar-icon-container {
+  position: relative;
+  margin-left: 0.3vw;
+  margin-right: 0.3vw;
+  height: 5vh;
+}
+
+.sidebar-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.8vh;
+  border-radius: 25vw;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-size: 2.2vh;
+  color: var(--grey);
+}
+
+.sidebar-icon.active {
+  background-color: var(--darkerGrey);
+  color: var(--white);
+}
+
+.sidebar-icon.expanded {
+  justify-content: flex-start;
+  padding-left: 1.2vw;
+}
+
+.sidebar-logo.expanded {
+  justify-content: flex-start;
+  padding-left: 1.2vw;
+}
+
+.sidebar-icon.menu {
+  padding-left: 1.2vw;
+  color: var(--primary-color);
+}
+
+.sidebar-icon-title {
+  margin-left: 1.2vw;
+  font-size: 1.8vh;
+  color: var(--primary-color);
+}
+
+.sidebar-icon-title.hidden {
+  opacity: 0;
+  display: none;
+}
+
+.sidebar-logo-title {
+  margin-left: 1.2vw;
+  font-size: 2.7vh;
+  font-weight: 800;
+  /* font-family: "Core Mellow"; */
+}
+
+.sidebar-logo-title.hidden {
+  opacity: 0;
+  display: none;
+}
+
+.sidebar-icon-container .tool-tip {
+  position: absolute;
+  left: 3.5vw;
+  top: 20%;
+  transform: translate(-50% -50%);
+  pointer-events: none;
+  background-color: var(--darkerGrey);
+  color: var(--white);
+  border-radius: 0.3vw;
+  padding-left: 0.4vw;
+  padding-right: 0.4vw;
+  padding-top: 0.3vw;
+  padding-bottom: 0.3vw;
+  font-size: 1.8vh;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.sidebar-icon-container:hover .tool-tip {
+  opacity: 1;
+}
+
+.tool-tip.expanded {
+  opacity: 0 !important;
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  margin-right: 0.2em;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-logo > img {
+  width: 5vh;
+  color: white;
+}
+
+.sidebar-icon:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  .sidebar-icon-title {
+    color: var(--white);
+  }
+}
