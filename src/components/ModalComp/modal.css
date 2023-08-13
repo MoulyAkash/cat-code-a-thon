@@ -1,0 +1,33 @@
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.modal-button {
+  cursor: pointer;
+  height: 30px;
+  /* width: 40px; */
+  width: 150px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper .button-wrapper {
+  width: 100%;
+  /* border: black solid 2px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.modal-wrapper .spo2-level,
+.modal-wrapper .msg {
+  text-align: center;
+  font-weight: 600;
+}

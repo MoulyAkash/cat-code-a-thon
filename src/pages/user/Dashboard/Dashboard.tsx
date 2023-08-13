@@ -48,7 +48,7 @@ const cardItems2: CardProps[] = [
   },
   {
     Icon: IoWater,
-    title: "91%",
+    title: "95%",
     description: "SPo2 Level",
     fillColor: "var(--lightBlue)",
   },
