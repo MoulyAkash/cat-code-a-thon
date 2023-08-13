@@ -20,7 +20,7 @@ export default function CameraFeeds() {
       width: 1280,
       height: 720,
     });
-    fetch("http://6081-14-139-190-106.ngrok.io/", {
+    fetch("http://192.168.168.204:5000/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
